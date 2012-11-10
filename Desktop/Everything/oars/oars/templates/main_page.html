@@ -1,17 +1,21 @@
-<html>
-	<head>
-		<title>OARS</title>
-	</head>
-	<body>
-		<h1>Welcome to Oars</h1>
-		{% if user.username %}
-			<p>Welcome {{ user.username }}!
-			Here you can acces OARS</p>
-		{% else %}
-			<p>Welcome anonymous user!
-			You need to <a href="/login/">login</a>
-			before you do anything.</p>
-		{% endif %}
-	</body>
-</html>
+{% extends "base.html" %}
+{% block title %}OARS{% endblock %}
+{% block fbox2_head %} Welcome to OARS {% endblock %}
+
+<!--<html>-->
+<!--	<head>-->
+<!--		<title>OARS</title>-->
+<!--	</head>-->
+<!--	<body>-->
+<!--		<h1>Welcome to Oars</h1>-->
+<!--		{% if user.username %}-->
+<!--			<p>Welcome {{ user.username }}!-->
+<!--			Here you can acces OARS</p>-->
+<!--		{% else %}-->
+<!--			<p>Welcome anonymous user!-->
+<!--			You need to <a href="/login/">login</a>-->
+<!--			before you do anything.</p>-->
+<!--		{% endif %}-->
+<!--	</body>-->
+<!--</html>-->
 
