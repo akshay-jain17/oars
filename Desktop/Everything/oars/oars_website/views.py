@@ -1,4 +1,4 @@
-# Create your views here.
+	# Create your views here.
 #from django.core.context_processors import csrf
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response
@@ -42,7 +42,7 @@ def pre_reg_page(request):
 	if request.method == 'POST':
 		form = RegistrationForm(request.POST)
 		if form.is_valid():
-			course_selected=form.clean_data['course']
+			course_selected=form.cleaned_data['course']
 			return HttpResponseRedirect('/')
 		else:
 			form = RegistrationForm()

@@ -30,6 +30,8 @@ class CourseOffer(models.Model):
 	instructor = models.ForeignKey(Instructor)
 	note = models.CharField(max_length = 200)
 	time = models.CharField(max_length = 200)
+	def __unicode__(self):
+		return self.course.course_no
 
 class CourseRequest(models.Model):
 	student = models.ForeignKey(Student)
