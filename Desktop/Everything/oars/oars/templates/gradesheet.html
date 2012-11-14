@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Gradesheet{% endblock %}
+{% block fbox1_content %}Gradesheet{% endblock %}
+{% block fbox2_content %}
+{% if done_courses_list %}
+    <ul>
+		<table>
+			{% for done_course in done_courses_list %}
+				<tr>
+					<td>
+						<a href="/gradesheet/{{ done_course.roll_no }}/">{{ done_course.roll_no }}</a>
+					</td>
+					<td>
+						{{ done_course.course_no }}
+					</td>
+					<td>
+						{{ done_course.course_name }}
+					</td>
+					<td>
+						{{ done_course.course_year }} Sem - {{ done_course.course_semester }}
+					</td>
+					<td>
+						{{ done_course.course_grade }}
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+    </ul>
+{% else %}
+    <p>No records are available.</p>
+{% endif %}
+{% endblock %}
+{% block fbox3_content %}{% endblock %}

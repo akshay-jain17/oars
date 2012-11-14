@@ -1,6 +1,18 @@
 {% extends "base.html" %}
 {% block title %}OARS{% endblock %}
 {% block fbox1_content %}Welcome to OARS{% endblock %}
+{% block fbox2_content %}
+	<table>
+		<tr><td width="100">Course No</td><td width="100">Title</td><td width="300">Status</td><td width="100"></td</tr>
+		{% for course in c_req %}
+			<tr><td>{{course.req_course.course.course_no}}</td><td>{{course.req_course.course.title}}</td><td>{{course.status}}</td>
+			{% if course.status != "REJECTED" %}
+				<td><a href="{% url 'oars_website.views.pre_reg_delete' course.id %}">Delete</a></td>
+			{% endif %}
+			</tr>
+		{% endfor %}
+	</table>	
+{% endblock %}
 {% block fbox3_content %}
 	<form method="post" action=".">
 		{{ form.as_p }}
