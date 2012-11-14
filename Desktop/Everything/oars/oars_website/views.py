@@ -163,7 +163,14 @@ def pre_reg_inspage(request):
 		})
 	return render_to_response('pre_reg_inspage.html', variables) 
 
-	
+@csrf_exempt
+def course_view(request):
+	c_offer = CourseOffer.objects.all()
+	variables = RequestContext(request, {
+		'c_offer':c_offer,
+		})
+	return render_to_response('course_view.html', variables) 
+
 @csrf_exempt
 def pre_reg_page(request):
 	user = request.user
@@ -189,6 +196,7 @@ def pre_reg_page(request):
 		if form.is_valid():
 #			print "I was here"
 			cselected=form.cleaned_data['course']
+			ctype = form.cleaned_data['course_type']
 			course_selected = CourseOffer.objects.get(offer_id = cselected)
 #			print "I was here"
 			try:
@@ -201,11 +209,12 @@ def pre_reg_page(request):
 #					req_id = unicode(str(os.urandom(32)))
 					student = stUser,
 					status = u"WAITING",
-					req_course = course_selected
+					req_course = course_selected,
+					course_type = ctype
 				)
 				new_request.save()
 				course_requested = CReq.objects.filter(student = stUser)
-				print course_requested
+#				print course_requested
 		else:
 			form = RegistrationForm()
 		

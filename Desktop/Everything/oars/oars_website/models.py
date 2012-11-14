@@ -144,6 +144,7 @@ class CReq(models.Model):
 	student = models.ForeignKey(Student)
 	status = models.CharField(max_length = 50)
 	req_course = models.ForeignKey('CourseOffer')
+	course_type = models.CharField(max_length = 50)
 	
 	def __unicode__(self):
 		return self.req_course.offer_id
@@ -165,8 +166,7 @@ class CourseOffer(models.Model):
 
 class DoneCourses(models.Model):
 	roll_no = models.CharField(max_length=10)
-	course_no = models.CharField(max_length=8)
-	course_name = models.CharField(max_length=50)
+	done_course = models.ForeignKey(Course)
 	course_grade = models.IntegerField()
 	course_year = models.IntegerField()
 	course_semester = models.IntegerField()
