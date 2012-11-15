@@ -5,10 +5,13 @@
 {% if done_courses_list %}
     <ul>
 		<table>
-			{% for done_course in done_courses_list %}
+			{% for done_course in latest_poll_list %}
 				<tr>
 					<td>
-						<a href="/gradesheet/{{ done_course.roll_no }}/">{{ done_course.roll_no }}</a>
+						{{ done_course.roll_no }}
+					</td>
+					<td>
+						{{ done_course.user }}
 					</td>
 					<td>
 						{{ done_course.course_no }}

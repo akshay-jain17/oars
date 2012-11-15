@@ -35,6 +35,7 @@ urlpatterns = patterns('',
     (r'^department_timetable/$', department_timetable_page),
     (r'^show_timetable/(\w+)/$', show_timetable),
 	url(r'^gradesheet/$', index, name='index'),
+	(r'^add_course/$', add_course),
 	url(r'^gradesheet/(?P<roll_no>\d+)/$', detail, name='detail'),
 	(r'^site_media/(?P<path>.*)$', 'django.views.static.serve', { 'document_root': site_media }),
 )

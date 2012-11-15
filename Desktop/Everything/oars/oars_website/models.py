@@ -166,6 +166,7 @@ class CourseOffer(models.Model):
 
 class DoneCourses(models.Model):
 	roll_no = models.CharField(max_length=10)
+	user = models.ForeignKey(settings.AUTH_USER_MODEL, unique = True, validators = [validate_student])
 	done_course = models.ForeignKey(Course)
 	course_grade = models.IntegerField()
 	course_year = models.IntegerField()
